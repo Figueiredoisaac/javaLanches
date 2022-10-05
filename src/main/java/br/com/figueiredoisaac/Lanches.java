@@ -1,10 +1,18 @@
-package main.java.br.com.figueiredoisaac.db.model.bean;
+package main.java.br.com.figueiredoisaac;
 
 public class Lanches {
 
 	private int id;
 	private String nome;
 	private double valor;
+	private static int total;
+	
+	public Lanches(String nome, double valor) {
+		this.setId(total);
+		this.setNome(nome);
+		this.setValor(valor);
+		total++;
+	}
 	
 	public int getId() {
 		return id;
