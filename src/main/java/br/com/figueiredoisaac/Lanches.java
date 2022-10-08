@@ -1,5 +1,7 @@
 package main.java.br.com.figueiredoisaac;
 
+import java.util.Objects;
+
 public class Lanches {
 
 	private int id;
@@ -32,6 +34,31 @@ public class Lanches {
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
+
+	@Override
+	public String toString() {
+		return this.id + "[nome=" + nome + ", valor=" + valor + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, nome, valor);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Lanches other = (Lanches) obj;
+		return id == other.id && Objects.equals(nome, other.nome)
+				&& Double.doubleToLongBits(valor) == Double.doubleToLongBits(other.valor);
+	}
+	
+	
 }
 
 
